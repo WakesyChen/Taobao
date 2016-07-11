@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?><LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+
+    <RadioGroup
+        android:background="@color/background"
+        android:orientation="horizontal"
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <RadioButton
+            android:id="@+id/btn_home1"
+            android:layout_width="0dp"
+            android:checked="true"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_btn_home"
+            android:gravity="center"
+            android:text="首页" />
+        <RadioButton
+            android:id="@+id/btn_weitao2"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_btn_weitao"
+            android:gravity="center"
+            android:text="微淘" />
+
+        <RadioButton
+            android:id="@+id/btn_discover3"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_btn_discover"
+            android:gravity="center"
+            android:text="发现" />
+
+        <RadioButton
+            android:id="@+id/btn_cart4"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_btn_cart"
+            android:gravity="center"
+            android:text="购物车" />
+
+        <RadioButton
+            android:id="@+id/btn_account5"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selector_btn_account"
+            android:gravity="center"
+            android:text="我的淘宝" />
+
+    </RadioGroup>
+</LinearLayout>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee"
+    android:orientation="vertical">
+
+    <!--顶部标题栏-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的购物车"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="编辑"
+            android:textColor="#98ff0000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/color_white" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/tb_icon_more_msg_56" />
+
+    </LinearLayout>
+
+    <!-- 分割线-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e8e8e8">
+    </LinearLayout>
+    <!-- 三种类别导航栏-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <!-- 全部宝贝-->
+       <LinearLayout
+           android:id="@+id/fragitem_ll_1"
+           android:layout_width="0dp"
+           android:layout_weight="1"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/fragitem_tv_1"
+
+               android:textColor="#ef0000"
+               android:textSize="16sp"
+               android:gravity="center"
+               android:text="全部宝贝"
+
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content" />
+           <ImageView
+               android:id="@+id/fragitem_tab_1"
+
+               android:layout_marginTop="10dp"
+               android:background="#ee0000"
+               android:layout_width="match_parent"
+               android:layout_height="2dp" />
+       </LinearLayout>
+        <!-- 分割线-->
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/line">
+        </LinearLayout>
+        <!-- 降价宝贝-->
+        <LinearLayout
+
+
+            android:id="@+id/fragitem_ll_2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/fragitem_tv_2"
+
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:text="全部宝贝"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/fragitem_tab_2"
+
+                android:layout_marginTop="10dp"
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="2dp" />
+        </LinearLayout>
+        <!-- 分割线-->
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/line">
+        </LinearLayout>
+        <!-- 全部宝贝-->
+        <LinearLayout
+
+            android:id="@+id/fragitem_ll_3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/fragitem_tv_3"
+
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:text="库存紧张"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/fragitem_tab_3"
+                android:layout_marginTop="10dp"
+                android:background="@color/line"
+                android:layout_width="match_parent"
+                android:layout_height="2dp" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <!-- 底部放置一个ViewPager-->
+
+    <LinearLayout
+        android:id="@+id/fragment_beans"
+        android:orientation="vertical"
+        android:background="#eee"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       >
+
+    </LinearLayout>
+
+
+</LinearLayout>
