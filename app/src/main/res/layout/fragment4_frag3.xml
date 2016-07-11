@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:layout_marginTop="120dp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,7 +20,7 @@
             android:scaleType="fitXY"/>
         <TextView
             android:layout_marginTop="20dp"
-            android:textSize="30sp"
+            android:textSize="22sp"
             android:textColor="#000"
             android:text="看起来宝贝库存很丰满"
             android:layout_width="wrap_content"

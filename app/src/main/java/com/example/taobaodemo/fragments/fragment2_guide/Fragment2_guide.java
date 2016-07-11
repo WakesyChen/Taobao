@@ -2,13 +2,16 @@ package com.example.taobaodemo.fragments.fragment2_guide;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.taobaodemo.R;
+import com.example.taobaodemo.activities.Detail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +60,13 @@ public class Fragment2_guide extends Fragment{
         listView.addHeaderView(view);
         listView.setAdapter(adapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getActivity(),Detail.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
