@@ -1,19 +1,25 @@
 package com.example.taobaodemo.fragments.fragment1_home;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SimpleAdapter;
 
 import com.example.taobaodemo.R;
+import com.example.taobaodemo.activities.DetailActivity;
+import com.example.taobaodemo.activities.DetailActivity2;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,6 +30,7 @@ import java.util.Map;
  * Created by Wakesy on 2016/7/8.
  */
 public class Fragment1_home extends Fragment{
+    private static final String TAG = "Home_fragment_1";
 
     private int imgs[]={R.mipmap.menu_viewpager_1,R.mipmap.menu_viewpager_2,R.mipmap.menu_viewpager_3,
             R.mipmap.menu_viewpager_4,R.mipmap.menu_viewpager_5,};
@@ -32,6 +39,7 @@ public class Fragment1_home extends Fragment{
     private List<ImageView>imglist;
     private LinearLayout ll_points;//viewapger下面指示点的布局；
     private List<ImageView>pointslist;
+    private ImageView img_qrcode;//二维码扫描
     private boolean isStop=false;//判断是否停止轮播
     private GridView gridView_1;
     private GridView gridView_2;
@@ -40,6 +48,7 @@ public class Fragment1_home extends Fragment{
     private List<Map<String,Object>>gv_list;//gridview_1的数据源
     private List<Map<String,Object>>gv2_list;//gridview_2的数据源
     private MyAsynctask myAsynctask;//控制轮播的异步任务
+    private Activity acitvity=getActivity();
     private int gvImgs[]={R.mipmap.menu_guide_1,R.mipmap.menu_guide_2,R.mipmap.menu_guide_3,R.mipmap.menu_guide_4,
             R.mipmap.menu_guide_5,R.mipmap.menu_guide_6,R.mipmap.menu_guide_7,R.mipmap.menu_guide_8,};
     private  int gvImgs2[]={R.mipmap.menu_1,R.mipmap.menu_2,R.mipmap.menu_3,
@@ -100,7 +109,7 @@ public class Fragment1_home extends Fragment{
             ll_points.addView(imageViewPoint);//添加到指示器布局中
             pointslist.add(imageViewPoint);//添加到集合中
         }
-        ViewPagerAdapter adapter=new ViewPagerAdapter(imglist);
+        ViewPagerAdapter adapter=new ViewPagerAdapter(imglist,context);
         viewPager.setAdapter(adapter);
         //默认设置第一个圆点为绿色
         pointslist.get(0).setEnabled(false);
@@ -119,10 +128,9 @@ public class Fragment1_home extends Fragment{
                     pointslist.get(i).setEnabled(true);
                 }
                 //当前界面为绿色
-                pointslist.get(position%pointslist.size()).setEnabled(false);
+                pointslist.get(position % pointslist.size()).setEnabled(false);
 
             }
-
 
 
             @Override
@@ -130,14 +138,32 @@ public class Fragment1_home extends Fragment{
 
             }
         });
+        //        gridview_1的点击事件
+        gridView_1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getActivity(), DetailActivity2.class);
+                startActivity(intent);
+            }
+        });
 
+//        gridview_2的点击事件
+        gridView_2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getActivity(), DetailActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
 
     private void initView(View view) {
         viewPager= (ViewPager) view.findViewById(R.id.viewpager_home);
         ll_points= (LinearLayout) view.findViewById(R.id.ll_points);
         gridView_1= (GridView) view.findViewById(R.id.gridview_1);
         gridView_2= (GridView) view.findViewById(R.id.gridview_2);
+        img_qrcode= (ImageView) view.findViewById(R.id.img_qrcode);
         gv_list=new ArrayList<>();
         gv2_list=new ArrayList<>();
         imglist=new ArrayList<>();
@@ -173,12 +199,21 @@ public class Fragment1_home extends Fragment{
             return null;
         }
     }
+    //退出时取消异步任务
+
     @Override
     public void onDestroy() {
         super.onDestroy();
         isStop=true;
-        //退出时取消异步任务
-        myAsynctask.cancel(true);
+        if (myAsynctask!=null&&myAsynctask.getStatus()==AsyncTask.Status.RUNNING) {
+            /**
+             *cancel(true) 取消当前的异步任务，传入的true,表示当中断异步任务时继续已经运行的线程的操作，
+             *但是为了线程的安全一般为让它继续设为true
+             * */
+            myAsynctask.cancel(true);
+
+        }
+
 
     }
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+
+            android:id="@+id/detail2_img_show"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            android:layout_marginRight="10dp"
+            android:background="@mipmap/detail_show_3"/>
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/detail2_tv_content"
+                android:text="时尚女衣 流行女衣 连衣裙 半身裙 尽在恋上猫女衣坊 店铺地址：http://yecaoly.taobao.com"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"/>
+            <TextView
+                android:id="@+id/detail2_tv_price"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="¥49.9 包邮"
+                android:textColor="#ff0000"/>
+            <TextView
+                android:id="@+id/detail2_tv_sale"
+                android:layout_marginTop="4dp"
+                android:text="1.8万人付款  广州"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

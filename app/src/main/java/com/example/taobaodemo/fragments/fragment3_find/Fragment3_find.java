@@ -2,14 +2,17 @@ package com.example.taobaodemo.fragments.fragment3_find;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
 
 import com.example.taobaodemo.R;
+import com.example.taobaodemo.activities.DetailActivity2;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -60,6 +63,22 @@ public class Fragment3_find extends Fragment{
         }
         adapter2 = new SimpleAdapter(context, datalist2, R.layout.find_gv_item, new String[]{"img"}, new int[]{R.id.gv3_item_img});
         gridView4.setAdapter(adapter2);
+
+//        给grideView3和gridView4设置点击事件
+        gridView3.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getActivity(), DetailActivity2.class);
+                startActivity(intent);
+            }
+        });
+        gridView4.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getActivity(), DetailActivity2.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initView(View view ) {

@@ -11,7 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.taobaodemo.R;
-import com.example.taobaodemo.activities.Detail;
+import com.example.taobaodemo.activities.DetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +63,7 @@ public class Fragment2_guide extends Fragment{
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent=new Intent(getActivity(),Detail.class);
+                Intent intent=new Intent(getActivity(),DetailActivity.class);
                 startActivity(intent);
             }
         });

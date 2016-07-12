@@ -1,10 +1,13 @@
 package com.example.taobaodemo.fragments.fragment1_home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.example.taobaodemo.activities.DetailActivity;
 
 import java.util.List;
 
@@ -16,13 +19,10 @@ public class ViewPagerAdapter extends PagerAdapter {
     private List<ImageView>imglist;
     private Context context;
 
-    public ViewPagerAdapter(Context context, List<ImageView> imglist) {
-        this.context = context;
-        this.imglist = imglist;
-    }
-
-    public ViewPagerAdapter(List<ImageView> imglist) {
+    public ViewPagerAdapter(List<ImageView> imglist,Context context) {
         this.imglist=imglist;
+        this.context=context;
+//        this.acitvity=acitvity;
     }
 
     @Override
@@ -36,9 +36,18 @@ public class ViewPagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(final ViewGroup container, int position) {
         container.addView(imglist.get(position%imglist.size()));
-        return imglist.get(position%imglist.size());
+        ImageView imageView=imglist.get(position%imglist.size());
+        //点击viewpager中的图片跳转到下个界面
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, DetailActivity.class);
+               context.startActivity(intent);
+            }
+        });
+        return imageView;
     }
 
     @Override

@@ -19,7 +19,7 @@ import java.util.Map;
 /**
  * Created by Wakesy on 2016/7/11.
  */
-public class Detail extends Activity {
+public class DetailActivity extends Activity {
     private ListView lv_detail;
     private List<Map<String,Object>> datalist;
     private SimpleAdapter adapter;
